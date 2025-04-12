@@ -1,17 +1,32 @@
-# nyatetsuara
-A desktop-based application for offline audio transcription using Whisper AI, featuring multilingual support, audio segmentation, and AI chat integration via OpenAI or Gemini.
+# Nyatetsuara
 
-A Mac-ready offline audio transcription app using Whisper AI and integrated AI chat support (OpenAI/Gemini).  
-"Nyatet suara jadi teks dalam sekejap!"
+**Nyatetsuara** adalah aplikasi desktop untuk transkripsi audio secara offline, menggunakan Whisper AI dari OpenAI.  
+Dirancang untuk macOS dan platform desktop lainnya.
 
-## Features
-- Drag & drop audio transcription
-- Multilingual support
-- Whisper model selection (Tiny to Large V2)
-- Audio segment jump via timestamps
-- Export to .txt, .docx, .pdf, .json, .srt
-- AI chat assistant with transcript
+> "Nyatet suara jadi teks dalam sekejap."
 
-## Coming soon
-- Speaker detection
-- Multi-file batch processing
+### ✨ Fitur Utama
+- Transkripsi offline (tanpa internet)
+- Dukungan banyak bahasa
+- Pemilihan model Whisper (tiny hingga large-v2)
+- Segmentasi teks dengan timestamp
+- Audio player interaktif
+- Ekspor ke `.txt`, `.docx`, `.pdf`, `.srt`, `.json`
+- Chat dengan AI (OpenAI atau Gemini)
+
+### 📂 Struktur Folder
+- `/backend` → skrip Python dan logika transkripsi
+- `/frontend` → tampilan dan kontrol UI
+- `/assets` → ikon, logo, sampel audio
+- `requirements.txt` → dependensi Python
+- `.gitignore` → pengecualian file
+- `LICENSE` → akan ditambahkan nanti
+
+### 🚀 Status
+Versi beta – pengembangan tahap awal.
+
+### 🛠️ Teknologi
+- Python 3.10+
+- Whisper by OpenAI
+- Electron.js / Tauri
+- ffmpeg
