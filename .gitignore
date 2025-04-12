@@ -172,3 +172,22 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Node.js / Electron
+node_modules/
+dist/
+build/
+*.log
+
+# Tauri (optional)
+src-tauri/target/
+src-tauri/.cargo/
+
+# macOS system files
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Whisper-specific
+whisper_cache/
