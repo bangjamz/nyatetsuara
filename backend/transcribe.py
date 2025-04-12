@@ -1,25 +1,38 @@
-# backend/transcribe.py
-
 import whisper
 import os
 import sys
+from datetime import datetime
 
 def transcribe_audio(audio_path, model_size="base", language="id"):
-    # Load model
     print(f"[INFO] Loading Whisper model: {model_size}")
     model = whisper.load_model(model_size)
 
-    # Run transcription
     print(f"[INFO] Transcribing: {audio_path}")
     result = model.transcribe(audio_path, language=language, verbose=True)
 
-    # Output each segment with timestamps
     print("\n--- Transcription Result ---")
+    transcript_lines = []
+
     for segment in result["segments"]:
-        print(f"[{segment['start']:.2f} - {segment['end']:.2f}] {segment['text']}")
+        start = segment['start']
+        end = segment['end']
+        text = segment['text']
+        line = f"[{start:.2f} - {end:.2f}] {text}"
+        print(line)
+        transcript_lines.append(line)
 
+    # Simpan ke file
+    filename = os.path.splitext(os.path.basename(audio_path))[0]
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_path = f"../transcripts/{filename}_{timestamp}.txt"
+
+    os.makedirs("../transcripts", exist_ok=True)
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(transcript_lines))
+
+    print(f"\n✅ Transkrip berhasil disimpan ke: {output_path}")
     return result
-
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
